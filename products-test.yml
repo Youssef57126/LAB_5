@@ -1,0 +1,11 @@
+config:
+  target: "https://juice-shop.herokuapp.com"
+  phases:
+    - duration: 40
+      arrivalRate: 100
+
+scenarios:
+  - name: "Get all products"
+    flow:
+      - get:
+          url: "/rest/products/search"

@@ -1,0 +1,18 @@
+config:
+  target: "https://juice-shop.herokuapp.com"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      name: "Login Load Test"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "User Login Attempts"
+    flow:
+      - post:
+          url: "/rest/user/login"
+          json:
+            email: "test{{ $loopCount }}@example.com"
+            password: "password{{ $loopCount }}"
